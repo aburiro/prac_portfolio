@@ -1,29 +1,18 @@
-import Header from "./components/Header"
-import logo from './logo.svg';
-// import './App.css';
-import HeroSection from "./components/HeroSection";
-import Projects from "./components/Projects";
-import { BuyerReview , SellerReview } from "./components/Reviews";
-import ContactUs from "./components/ContactUs";
-import SocialMediaProfiles from "./components/SocialMediaProfiles"
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import {Route, Routes} from "react-router-dom";
+import WelcomePage from "./components/WelcomePage";
+import AllProjects from "./components/AllProjects";
 
 function App() {
-  return (
-    <div >
-      <div>
-     <Header/>
-      <HeroSection/>
-      <SocialMediaProfiles />
-      <Projects/>
-
-      <BuyerReview/>
-      <SellerReview/>
-      <ContactUs/>
-     </div>
-     
-     
-    </div>
-  );
+    return (<div>
+            <Header/>
+                <Routes>
+                    <Route path={'/'} element={<WelcomePage/>}/>
+                    <Route path={'/all-projects'} element={<AllProjects/>}/>
+                </Routes>
+            <Footer/>
+        </div>);
 }
 
 export default App;

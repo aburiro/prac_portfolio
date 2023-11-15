@@ -1,29 +1,42 @@
-// Contact.js
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import {useState} from "react";
 
-import React from 'react';
 
-const Contact = () => {
-  return (
-    <div className="contact">
-      <h2>Contact Us</h2>
-      <p>If you have any questions or feedback, please feel free to get in touch with us.</p>
-      <form>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input type="text" id="name" name="name" />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" />
-        </div>
-        <div>
-          <label htmlFor="message">Message:</label>
-          <textarea id="message" name="message" rows="4"></textarea>
-        </div>
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
-  );
-};
+function ContactUs() {
+    const [userInfo, setUserInfo] = useState({
+        username: '',
+        email: ''
+    })
 
-export default Contact;
+
+    function submitInfo() {
+        console.log(userInfo)
+    }
+
+    return (
+        <div style={{backgroundColor: '#e5e5e5'}}>
+            <div className={"container p-4"}>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Enter your name</Form.Label>
+                    <Form.Control value={userInfo.username} onChange={(e) => setUserInfo({...userInfo, username: e.target.value})}  type="text" placeholder="e.g John" />
+                    <Form.Text className="text-muted">
+                        Enter Name Here for Contact
+                    </Form.Text>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Email address</Form.Label>
+                    <Form.Control value={userInfo.email} onChange={(e) => setUserInfo({...userInfo, email: e.target.value})} type="email" placeholder="Enter email" />
+                    <Form.Text className="text-muted">
+                        We'll never share your email with anyone else.
+                    </Form.Text>
+                </Form.Group>
+                <Button onClick={submitInfo} variant="dark">
+                    Submit
+                </Button>
+            </div>
+        </div>
+    );
+}
+
+export default ContactUs;
