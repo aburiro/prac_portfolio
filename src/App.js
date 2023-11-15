@@ -1,34 +1,25 @@
 import Header from "./components/Header"
 import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 import HeroSection from "./components/HeroSection";
 import Projects from "./components/Projects";
 import { BuyerReview , SellerReview } from "./components/Reviews";
-import Contact from "./components/Contact";
-
+import ContactUs from "./components/ContactUs";
+import SocialMediaProfiles from "./components/SocialMediaProfiles"
 
 function App() {
   return (
-    <div className="App">
+    <div >
       <div>
      <Header/>
       <HeroSection/>
+      <SocialMediaProfiles />
       <Projects/>
 
       <BuyerReview/>
       <SellerReview/>
-      <Contact/>
+      <ContactUs/>
      </div>
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     
      
      
     </div>
